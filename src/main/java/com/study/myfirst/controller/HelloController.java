@@ -1,5 +1,7 @@
 package com.study.myfirst.controller;
 
+import com.study.myfirst.service.HelloService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,9 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/say")
 public class HelloController {
 
+    @Autowired
+    private HelloService helloService;
+
     @GetMapping("/hello")
     public String hello(){
-        return "hello, my first java project";
+        //helloService.setCar();
+        helloService.setUser();
+        return "success";
     }
 
 }
